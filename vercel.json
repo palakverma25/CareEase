@@ -3,15 +3,11 @@
     "builds": [
       {
         "src": "admin/package.json",
-        "use": "@vercel/static-build",
-        "buildCommand": "npm install && npm run dev",
-        "config": { "distDir": "admin/dist" }
+        "use": "@vercel/static-build"
       },
       {
         "src": "frontend/package.json",
-        "use": "@vercel/static-build",
-        "buildCommand": "npm install && npm run dev",
-        "config": { "distDir": "frontend/dist" }
+        "use": "@vercel/static-build"
       },
       {
         "src": "backend/server.js",
@@ -20,13 +16,8 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "backend/server.js" },
-      { "src": "/admin/(.*)", "dest": "admin/dist/index.html" },
-      { "src": "/(.*)", "dest": "frontend/dist/index.html" }
-    ],
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
+      { "src": "/admin/(.*)", "dest": "admin/index.html" },
+      { "src": "/(.*)", "dest": "frontend/index.html" }
+    ]
   }
   
